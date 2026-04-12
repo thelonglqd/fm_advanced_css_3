@@ -1,0 +1,13 @@
+/* breakpoints.module.css */
+
+@theme {
+  /* Tailwind v4 sẽ nhận diện biến này */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+}
+
+/* Đây là phép màu của CSS Modules */
+:export {
+  sm: var(--breakpoint-sm);
+  md: var(--breakpoint-md);
+}
