@@ -52,9 +52,9 @@
 @utility text-preset-3 {
   font-family: var(--font-league);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.4;
-  letter-spacing: 0.4375rem; /* 7px */
+  letter-spacing: -0.5px; /* 7px */
 }
 
 @utility text-preset-4 {
@@ -117,6 +117,32 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animation-fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.animation-fade-out {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
 .slide-in-right {
   animation: slideInRight 0.1s ease forwards;
 }
@@ -131,4 +157,8 @@
 
 .slide-in-left {
   animation: slideInLeft 0.1s ease forwards;
+}
+
+.test {
+  border-radius: 50%;
 }

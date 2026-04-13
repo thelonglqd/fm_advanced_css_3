@@ -1,88 +1,105 @@
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
-import hero1 from '../assets/images/mobile-image-hero-1.jpg'
-import hero2 from '../assets/images/mobile-image-hero-2.jpg'
-import hero3 from '../assets/images/mobile-image-hero-3.jpg'
+import { useEffect, useRef, useState } from 'react'
 
-const IMAGES = [hero1, hero2, hero3]
-
-const TRACKS = [IMAGES.at(-1), ...IMAGES, IMAGES.at(0)]
-
-console.log('TRACKS ::: ', TRACKS)
+import arrowLeft from '../assets/images/icon-angle-left.svg'
+import arrowRight from '../assets/images/icon-angle-right.svg'
+import { useHeroImages } from '../hooks/useHeroImages'
 
 export const ImagesSlider = () => {
-  const [trackIndex, setTrackIndex] = useState(1)
-  const [transitionEnabled, setTransitionEnabled] =
+  const [imgTrackIdx, setImgTrackIdx] = useState(1)
+  const [imgTransitionEnable, setImgTransitionEnable] =
     useState(true)
 
-  const isTransitioning = useRef(false)
+  const isImgTransitioning = useRef(false)
+  const sliderRef = useRef(null)
+  const IMAGES = useHeroImages()
 
-  const handleNext = () => {
-    if (isTransitioning.current) return
-    isTransitioning.current = true
-    setTrackIndex(i => i + 1)
+  const imagesTracks = [
+    IMAGES.at(-1),
+    ...IMAGES,
+    IMAGES.at(0),
+  ]
+
+  const handleNextImage = () => {
+    if (isImgTransitioning.current) return
+    isImgTransitioning.current = true
+    setImgTrackIdx(i => i + 1)
   }
 
-  const handlePrev = () => {
-    if (isTransitioning.current) return
-    isTransitioning.current = true
-    setTrackIndex(i => i - 1)
+  const handlePrevImage = () => {
+    if (isImgTransitioning.current) return
+    isImgTransitioning.current = true
+    setImgTrackIdx(i => i - 1)
   }
 
-  const handleTransitionEnd = () => {
-    isTransitioning.current = false
-    if (trackIndex === TRACKS.length - 1) {
-      setTransitionEnabled(false)
-      setTrackIndex(1)
-    } else if (trackIndex === 0) {
-      setTransitionEnabled(false)
-      setTrackIndex(IMAGES.length)
+  const handleImageTransitionEnd = () => {
+    isImgTransitioning.current = false
+    if (imgTrackIdx === imagesTracks.length - 1) {
+      setImgTransitionEnable(false)
+      setImgTrackIdx(1)
+    } else if (imgTrackIdx === 0) {
+      setImgTransitionEnable(false)
+      setImgTrackIdx(IMAGES.length - 1)
     }
   }
 
   useEffect(() => {
-    if (!transitionEnabled) setTransitionEnabled(true)
-  }, [transitionEnabled])
+    if (!imgTransitionEnable) {
+      void sliderRef.current.offsetWidth
+      setImgTransitionEnable(true)
+    }
+  }, [imgTransitionEnable])
 
   return (
-    <>
+    <div className="relative">
       <div className="overflow-hidden">
         <div
-          className="flex"
+          ref={sliderRef}
           style={{
-            width: `${TRACKS.length * 100}%`,
-            transform: `translateX(-${(trackIndex / TRACKS.length) * 100}%)`,
-            transition: transitionEnabled
-              ? 'transform 200ms cubic-bezier(0.77, 0, 0.175, 1)'
+            width: `${imagesTracks.length * 100}%`,
+            transform: `translateX(-${(imgTrackIdx / imagesTracks.length) * 100}%)`,
+            transition: imgTransitionEnable
+              ? `transform 0.3s ease-in-out`
               : 'none',
           }}
-          onTransitionEnd={handleTransitionEnd}>
-          {TRACKS.map((track, idx) => (
+          onTransitionEnd={handleImageTransitionEnd}
+          className="flex">
+          {imagesTracks.map((track, idx) => (
             <div
-              key={`${idx}-${track}`}
-              style={{ width: `${100 / TRACKS.length}%` }}>
+              className="w-full"
+              key={`${idx}-${track.imgSrc}`}>
               <img
-                className="w-full h-full object-cover"
-                src={track}
+                className="w-full"
+                src={track.imgSrc}
+                alt=""
               />
             </div>
           ))}
         </div>
       </div>
-      <button
-        onClick={handlePrev}
-        className="text-white px-4 py-2 bg-amber-500 cursor-pointer">
-        PREVIOUS
-      </button>
-      <button
-        onClick={handleNext}
-        className="text-white px-4 py-2 bg-purple-500 cursor-pointer">
-        NEXT
-      </button>
-    </>
+      <div className="absolute bottom-0 right-0">
+        <button
+          onClick={handlePrevImage}
+          className="bg-black py-6 px-8 cursor-pointer"
+          type="button">
+          <i>
+            <img
+              src={arrowLeft}
+              alt=""
+            />
+          </i>
+        </button>
+        <button
+          onClick={handleNextImage}
+          className="bg-black py-6 px-8 cursor-pointer"
+          type="button">
+          <i>
+            <img
+              src={arrowRight}
+              alt=""
+            />
+          </i>
+        </button>
+      </div>
+    </div>
   )
 }
