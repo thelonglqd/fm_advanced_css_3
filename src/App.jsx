@@ -4,7 +4,7 @@ import { ImagesSlider } from './components/ImagesSlider'
 
 function App() {
   return (
-    <div>
+    <div className="mx-auto max-w-7xl">
       <ImagesSlider />
     </div>
   )
