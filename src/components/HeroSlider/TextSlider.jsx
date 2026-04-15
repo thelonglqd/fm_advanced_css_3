@@ -1,0 +1,35 @@
+import { useHeroTransitionStyle } from '../../hooks/useHeroTransitionStyle'
+
+export const TextSlider = ({
+  trackIdx,
+  tracks = [],
+  transitionEnable,
+}) => {
+  const transitionStyles = useHeroTransitionStyle({
+    currentTrackIdx: trackIdx,
+    transitionEnable,
+    tracks,
+  })
+
+  return (
+    <div className="overflow-hidden lg:max-w-2/5 lg:relative">
+      <div
+        style={{
+          ...transitionStyles,
+          width: `${tracks.length * 100}%`,
+        }}
+        className="flex">
+        {tracks.map((track, idx) => (
+          <div
+            className="w-full px-8 py-12"
+            key={`${idx}-${track.title}`}>
+            <h2 className="text-preset-2">{track.title}</h2>
+            <p className="text-gray-500 text-preset-3 mt-4">
+              {track.content}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

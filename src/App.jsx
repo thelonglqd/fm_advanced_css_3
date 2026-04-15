@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import './App.css'
-import { ImagesSlider } from './components/ImagesSlider'
+import HeroSlider from './components/HeroSlider'
 
 function App() {
   return (
     <div className="mx-auto max-w-7xl">
-      <ImagesSlider />
+      <HeroSlider />
     </div>
   )
 }
