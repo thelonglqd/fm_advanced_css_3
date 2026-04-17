@@ -16,7 +16,7 @@ export const TextSlider = ({
   const { isDesktop } = useMediaScreen()
 
   return (
-    <div className="overflow-hidden lg:max-w-2/5 lg:relative">
+    <div className="overflow-hidden lg:relative lg:col-span-3">
       <div
         style={{
           ...transitionStyles,

@@ -3,15 +3,18 @@ import aboutLight from '../../assets/images/image-about-light.jpg'
 
 export const AboutSection = () => {
   return (
-    <div className="mt-10 lg:mt-0 lg:flex">
-      <div className="w-full">
+    // <div className="mt-10 lg:mt-0 lg:flex lg:col-span-7">
+
+    // </div>
+    <>
+      <div className="w-full col-span-2 mt-10 lg:mt-0">
         <img
           className="w-full md:aspect-3/1 lg:h-full"
           src={aboutDark}
           alt=""
         />
       </div>
-      <div className="px-8 mt-10 lg:mt-0 lg:p-8">
+      <div className="px-8 mt-10 lg:mt-0 lg:p-8 col-span-3">
         <h2 className="text-preset-7">
           ABOUT OUR FURNITURE
         </h2>
@@ -26,13 +29,13 @@ export const AboutSection = () => {
           create your dream space.
         </p>
       </div>
-      <div className="w-full mt-10 lg:mt-0">
+      <div className="w-full mt-10 lg:mt-0 col-span-2">
         <img
           className="w-full md:aspect-3/1 lg:h-full"
           src={aboutLight}
           alt=""
         />
       </div>
-    </div>
+    </>
   )
 }

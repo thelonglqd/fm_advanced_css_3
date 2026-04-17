@@ -7,7 +7,7 @@ import { useMediaScreen } from './hooks/useMediaScreen'
 function App() {
   const { isDesktop } = useMediaScreen()
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="lg:grid mx-auto max-w-7xl lg:grid-cols-7">
       <HeroSlider />
       {!isDesktop && <ShopNowButton />}
       <AboutSection />

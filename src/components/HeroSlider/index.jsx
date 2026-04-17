@@ -51,7 +51,7 @@ export default function HeroSlider() {
   }, [transitionEnable])
 
   return (
-    <div className="lg:flex">
+    <>
       <ImagesSlider
         trackIdx={trackIdx}
         tracks={tracks}
@@ -65,6 +65,6 @@ export default function HeroSlider() {
         tracks={tracks}
         transitionEnable={transitionEnable}
       />
-    </div>
+    </>
   )
 }
