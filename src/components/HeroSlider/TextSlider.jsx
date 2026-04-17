@@ -1,4 +1,6 @@
 import { useHeroTransitionStyle } from '../../hooks/useHeroTransitionStyle'
+import { useMediaScreen } from '../../hooks/useMediaScreen'
+import { ShopNowButton } from '../ShopNowButton'
 
 export const TextSlider = ({
   trackIdx,
@@ -11,6 +13,8 @@ export const TextSlider = ({
     tracks,
   })
 
+  const { isDesktop } = useMediaScreen()
+
   return (
     <div className="overflow-hidden lg:max-w-2/5 lg:relative">
       <div
@@ -21,7 +25,7 @@ export const TextSlider = ({
         className="flex">
         {tracks.map((track, idx) => (
           <div
-            className="w-full px-8 py-12"
+            className="w-full px-8 pt-16"
             key={`${idx}-${track.title}`}>
             <h2 className="text-preset-2">{track.title}</h2>
             <p className="text-gray-500 text-preset-3 mt-4">
@@ -30,6 +34,7 @@ export const TextSlider = ({
           </div>
         ))}
       </div>
+      {isDesktop && <ShopNowButton />}
     </div>
   )
 }

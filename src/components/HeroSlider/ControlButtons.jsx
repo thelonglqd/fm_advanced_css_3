@@ -10,7 +10,7 @@ export const ControlButtons = ({ onPrev, onNext }) => {
         className="bg-black py-6 px-8 cursor-pointer flex"
         type="button">
         <img
-          className="w-3.5 h-5 flex-none"
+          className="w-3.5 h-5 flex-none lg:w-5 lg:h-7"
           src={arrowLeft}
           alt=""
         />
@@ -20,7 +20,7 @@ export const ControlButtons = ({ onPrev, onNext }) => {
         className="bg-black py-6 px-8 cursor-pointer flex"
         type="button">
         <img
-          className="w-3.5 h-5 flex-none"
+          className="w-3.5 h-5 flex-none lg:w-5 lg:h-7"
           src={arrowRight}
           alt=""
         />

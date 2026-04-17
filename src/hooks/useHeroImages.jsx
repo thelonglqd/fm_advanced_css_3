@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useMediaScreen } from './useMediaScreen'
 
 const mobileImages = [
   {
@@ -61,27 +61,7 @@ const desktopImages = [
 ]
 
 export const useHeroImages = () => {
-  const getSmBreakpoint = (unit = 'px') => {
-    const value = getComputedStyle(document.documentElement)
-      .getPropertyValue('--breakpoint-sm')
-      .trim()
-    return unit === 'px'
-      ? parseFloat(value) * 16
-      : parseFloat(value)
-  }
-
-  const [isMobile, setIsMobile] = useState(
-    () => window.innerWidth < getSmBreakpoint(),
-  )
-
-  useEffect(() => {
-    const sm = getSmBreakpoint('rem')
-    const mq = window.matchMedia(`(width >= ${sm}rem`)
-    const handler = e => setIsMobile(!e.matches)
-    mq.addEventListener('change', handler)
-
-    return () => mq.removeEventListener('change', handler)
-  }, [])
+  const { isMobile } = useMediaScreen()
 
   return isMobile ? mobileImages : desktopImages
 }
