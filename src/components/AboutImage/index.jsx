@@ -3,21 +3,18 @@ import aboutLight from '../../assets/images/image-about-light.jpg'
 
 export const AboutSection = () => {
   return (
-    // <div className="mt-10 lg:mt-0 lg:flex lg:col-span-7">
-
-    // </div>
     <>
       <div className="w-full col-span-2 mt-10 lg:mt-0">
         <img
           className="w-full md:aspect-3/1 lg:h-full"
           src={aboutDark}
-          alt=""
+          alt="blurry white chair"
         />
       </div>
       <div className="px-8 mt-10 lg:mt-0 lg:p-8 col-span-3">
-        <h2 className="text-preset-7">
+        <h1 className="text-preset-7">
           ABOUT OUR FURNITURE
-        </h2>
+        </h1>
         <p className="text-preset-3 text-gray-500 mt-4">
           Our multifunctional collection blends design and
           function to suit your individual taste. Make each
@@ -33,7 +30,7 @@ export const AboutSection = () => {
         <img
           className="w-full md:aspect-3/1 lg:h-full"
           src={aboutLight}
-          alt=""
+          alt="home furniture"
         />
       </div>
     </>

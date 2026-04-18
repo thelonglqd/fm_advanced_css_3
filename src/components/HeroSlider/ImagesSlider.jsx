@@ -16,7 +16,7 @@ export const ImagesSlider = ({
   })
 
   return (
-    <div className="relative lg:w-ful lg:col-span-4">
+    <section className="relative lg:w-ful lg:col-span-4">
       <div className="overflow-hidden">
         <div
           style={{
@@ -42,6 +42,6 @@ export const ImagesSlider = ({
         onPrev={onPrev}
         onNext={onNext}
       />
-    </div>
+    </section>
   )
 }

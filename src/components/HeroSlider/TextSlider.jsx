@@ -16,7 +16,7 @@ export const TextSlider = ({
   const { isDesktop } = useMediaScreen()
 
   return (
-    <div className="overflow-hidden lg:relative lg:col-span-3">
+    <section className="overflow-hidden lg:relative lg:col-span-3">
       <div
         style={{
           ...transitionStyles,
@@ -35,6 +35,6 @@ export const TextSlider = ({
         ))}
       </div>
       {isDesktop && <ShopNowButton />}
-    </div>
+    </section>
   )
 }

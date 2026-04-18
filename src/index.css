@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::after,
+  *::before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @theme {
   /* Colors */
   --color-white: #ffffff;
@@ -54,7 +64,7 @@
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.4;
-  letter-spacing: -0.5px; /* 7px */
+  letter-spacing: -0.03125rem;
 }
 
 @utility text-preset-4 {
@@ -107,86 +117,4 @@
 
 .nav-link:hover::after {
   transform: scaleX(1);
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOutLeft {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.animation-fade-in {
-  animation: fadeIn 0.3s ease-in-out forwards;
-}
-
-.animation-fade-out {
-  animation: fadeOut 0.3s ease-in-out forwards;
-}
-
-.slide-in-right {
-  animation: slideInRight 0.1s ease forwards;
-}
-
-.slide-out-right {
-  animation: slideOutRight 0.1s ease forwards;
-}
-
-.slide-out-left {
-  animation: slideOutLeft 0.1s ease forwards;
-}
-
-.slide-in-left {
-  animation: slideInLeft 0.1s ease forwards;
-}
-
-.test {
-  border-radius: 50%;
 }

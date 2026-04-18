@@ -11,18 +11,19 @@ const NavBarMobile = () => {
     <>
       <div className="fixed z-100 left-0 right-0 p-10 bg-transparent flex justify-between items-center">
         <button
+          aria-label="open nav"
           onClick={() => setNavOpen(true)}
           type="button"
           className="cursor-pointer">
           <img
             src={hamburgerIcon}
-            alt=""
+            alt="hamburger icon"
           />
         </button>
         <div>
           <img
             src={logoIcon}
-            alt=""
+            alt="room logo"
           />
         </div>
         <div></div>
@@ -35,12 +36,13 @@ const NavBarMobile = () => {
         }
         className="bg-white fixed w-full p-10 flex justify-between items-center transition-opacity duration-300 ease-in-out">
         <button
+          aria-label="close nav"
           type="button"
           onClick={() => setNavOpen(false)}
           className="basis-4 cursor-pointer">
           <img
             src={closeIcon}
-            alt=""
+            alt="close button"
           />
         </button>
         <ul className="text-preset-3 flex justify-between basis-[70%]">
@@ -68,7 +70,7 @@ const NavBarDesktop = () => {
       <div>
         <img
           src={logoIcon}
-          alt=""
+          alt="room logo"
         />
       </div>
       <ul className="text-preset-3 flex justify-between gap-4 text-white basis-[70%]">
