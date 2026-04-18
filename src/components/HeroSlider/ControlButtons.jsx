@@ -4,7 +4,7 @@ import arrowRight from '../../assets/images/icon-angle-right.svg'
 export const ControlButtons = ({ onPrev, onNext }) => {
   return (
     <section
-      className={`bg-black flex absolute bottom-0 right-0 lg:bottom-0 z-10 lg:left-full lg:right-auto items-center justify-between lg:w-[calc(100%*1/4)]`}>
+      className={`bg-black flex absolute bottom-0 right-0 xl:bottom-0 z-10 xl:left-full xl:right-auto items-center justify-between xl:w-[calc(100%*1/4)]`}>
       <button
         aria-label="previous"
         onClick={onPrev}

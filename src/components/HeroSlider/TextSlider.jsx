@@ -25,7 +25,7 @@ export const TextSlider = ({
         className="flex">
         {tracks.map((track, idx) => (
           <div
-            className="w-full px-8 pt-16"
+            className="w-full p-12"
             key={`${idx}-${track.title}`}>
             <h2 className="text-preset-2">{track.title}</h2>
             <p className="text-gray-500 text-preset-3 mt-4">
